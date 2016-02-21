@@ -9,19 +9,6 @@ public class WordParserTest {
 
 
 	@Test
-	public void simpleParserTest(){
-		WordParser wordParser = new WordParser(null, ".");
-		
-		WordParserResult parsedResult = wordParser.parse(" This    is a test. ");
-		
-		Assert.assertEquals( 4,parsedResult.getUniqueWords().size());
-
-		Assert.assertTrue(parsedResult.hasWord("this"));
-		Assert.assertTrue("Expected . to be removed from word test",parsedResult.hasWord("test"));
-		Assert.assertFalse(parsedResult.hasWord("Thisis"));
-	}
-
-	@Test
 	public void resultVerificationTest(){
 		String fileAsString = FileReaderUtil.readFileAsString("tempest.txt", System.getProperty(System.getProperty("file.encoding")));
 		WordParser wordParser = new WordParser("[", ". ? , ! ; : ]");
